@@ -1,16 +1,23 @@
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Main from "./components/Main";
-import Nav from "./components/Nav";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import AboutPage from "./pages/About";
+import HistoryPage from "./pages/History";
+import FaithPage from "./pages/Faith";
+import FestivalsPage from "./pages/Festivals";
+import BiographyPage from "./pages/Biography";
 
 function App() {
   return (
-    <>
-      <Nav />
-      <Hero />
-      <Main />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/faith" element={<FaithPage />} />
+        <Route path="/festivals" element={<FestivalsPage />} />
+        <Route path="/biography" element={<BiographyPage />} />
+      </Routes>
+    </Router>
   );
 }
 

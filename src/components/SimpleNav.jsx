@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
-  const [isOpen, setIsOpen] = useState(true);
+const SimpleNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [lilChange, setLilChange] = useState(false);
-
   return (
     <nav>
       <div className="bg-[#373737] relative">
@@ -24,8 +22,8 @@ const Nav = () => {
                 About Samaritan&apos;s Purse
               </Link>
               {/* <Link to="/" className="text-white uppercase">
-               
-              </a> */}
+         
+        </a> */}
             </li>
             <li>
               <Link to="/history" className="text-white uppercase">
@@ -56,7 +54,7 @@ const Nav = () => {
               <a
                 href="#"
                 className="text-white uppercase bg-[#c07b02] border-2 border-[#aa6e06] p-2"
-                onClick={() => setLilChange(!lilChange)}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 Give
               </a>
@@ -145,7 +143,7 @@ const Nav = () => {
 
         <div
           className={`${
-            lilChange ? "block" : "hidden"
+            isOpen ? "block" : "hidden"
           } w-full bg-[#222222] max-w-[1140px] flex flex-col md:flex-row justify-between absolute z-20 left-[50%] -translate-x-[50%] text-white p-8`}
         >
           <div className="w-full md:w-1/2">
@@ -272,102 +270,15 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="bg-[#8c8c35]">
+      <div className="bg-[#002d56]">
         <div className="max-w-[1140px] m-auto flex items-center justify-between px-2">
           <h1 className="text-white uppercase py-2">
             helping in jesus&apos; name
           </h1>
-
-          <div className="flex items-center gap-5">
-            <h1 className="text-white uppercase">january 10, 2025</h1>
-
-            <button
-              className="bg-white uppercase h-full p-2 flex items-center gap-10"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              Ministry highlights
-              {isOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#000000"
-                >
-                  <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#000000"
-                >
-                  <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={`max-w-[1140px] mx-auto mt-5 rounded-xl shadow-xl flex flex-col md:flex-row justify-center items-center relative overflow-hidden transition-all ${
-          isOpen ? "h-auto" : "h-0"
-        }`}
-      >
-        <div className="w-full md:w-[62%]">
-          <img
-            src="https://s3.theark.cloud/sp-comm-arkfiles/website/images/2025/water-day/img/2521VN-E1-394__S.jpg"
-            alt="image"
-          />
-        </div>
-
-        <div className="p-4 flex flex-col gap-4">
-          <h1 className="text-center font-bold text-4xl">
-            Clean Water. Changed Lives.
-          </h1>
-
-          <div>
-            <div className="flex justify-end">
-              <small style={{ letterSpacing: 1.6, fontSize: 10 }}>
-                Clean Water Projects 013659
-              </small>
-            </div>
-            <div className="flex">
-              <div className="w-1/3">
-                <button className="w-11/12 bg-[#0064f9] p-2 text-white shadow rounded">
-                  Learn More
-                </button>
-              </div>
-              <div
-                className="flex rounded-md w-2/3 align-center"
-                style={{ borderWidth: 2, borderColor: "#00cc00" }}
-              >
-                <div className="w-1/2 relative">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                    $
-                  </span>
-                  <input
-                    type="number"
-                    className="w-full h-full p-2 pl-7 border rounded"
-                    placeholder="0.00"
-                  />
-                </div>
-
-                <div className="w-1/2">
-                  <div className="w-full h-full bg-green-500 flex justify-center items-center text-white text-xl">
-                    Give
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Nav;
+export default SimpleNav;
