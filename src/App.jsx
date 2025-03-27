@@ -5,6 +5,7 @@ import HistoryPage from "./pages/History";
 import FaithPage from "./pages/Faith";
 import FestivalsPage from "./pages/Festivals";
 import BiographyPage from "./pages/Biography";
+import Give from "./pages/Give";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/faith" element={<FaithPage />} />
         <Route path="/festivals" element={<FestivalsPage />} />
         <Route path="/biography" element={<BiographyPage />} />
+        <Route path="/give" element={<Give />} />
       </Routes>
     </Router>
   );

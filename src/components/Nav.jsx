@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [lilChange, setLilChange] = useState(false);
+  const nav = useNavigate();
+
+  function goToGive() {
+    setIsOpen(false);
+    nav("/give");
+  }
 
   return (
     <nav>
@@ -88,9 +94,8 @@ const Nav = () => {
             </a>
 
             <ul
-              className={`absolute z-50 right-0 top-8 bg-[#373737] overflow-hidden flex flex-col gap-3 ${
-                isDropdownOpen ? "h-auto p-4" : "h-0"
-              }`}
+              className={`absolute z-50 right-0 top-8 bg-[#373737] overflow-hidden flex flex-col gap-3 ${isDropdownOpen ? "h-auto p-4" : "h-0"
+                }`}
             >
               <li>
                 <Link to={"/about"} className="text-white uppercase">
@@ -124,6 +129,7 @@ const Nav = () => {
                 <a
                   href="#"
                   className="text-white uppercase bg-[#c07b02] border-2 border-[#aa6e06] p-2"
+                  onClick={() => setLilChange(!lilChange)}
                 >
                   Give
                 </a>
@@ -144,9 +150,8 @@ const Nav = () => {
         </div>
 
         <div
-          className={`${
-            lilChange ? "block" : "hidden"
-          } w-full bg-[#222222] max-w-[1140px] flex flex-col md:flex-row justify-between absolute z-20 left-[50%] -translate-x-[50%] text-white p-8`}
+          className={`${lilChange ? "block" : "hidden"
+            } w-full bg-[#222222] max-w-[1140px] flex flex-col md:flex-row justify-between absolute z-20 left-[50%] -translate-x-[50%] text-white p-8`}
         >
           <div className="w-full md:w-1/2">
             <div className="w-full flex items-center justify-between">
@@ -162,7 +167,9 @@ const Nav = () => {
                   placeholder="$0.00"
                   className="outline-none border-none text-black p-4 w-[200px] h-full"
                 />
-                <button className="bg-[#c07b02] h-full w-[50px]">Give</button>
+                <Link to={"/give"}>
+                  <button className="bg-[#c07b02] h-full w-[50px]">Give</button>
+                </Link>
               </div>
             </div>
 
@@ -279,7 +286,7 @@ const Nav = () => {
           </h1>
 
           <div className="flex items-center gap-5">
-            <h1 className="text-white uppercase">january 10, 2025</h1>
+            <h1 className="text-white uppercase">March 27, 2025</h1>
 
             <button
               className="bg-white uppercase h-full p-2 flex items-center gap-10"
@@ -313,9 +320,8 @@ const Nav = () => {
       </div>
 
       <div
-        className={`max-w-[1140px] mx-auto mt-5 rounded-xl shadow-xl flex flex-col md:flex-row justify-center items-center relative overflow-hidden transition-all ${
-          isOpen ? "h-auto" : "h-0"
-        }`}
+        className={`max-w-[1140px] mx-auto mt-5 rounded-xl shadow-xl flex flex-col md:flex-row justify-center items-center relative overflow-hidden transition-all ${isOpen ? "h-auto" : "h-0"
+          }`}
       >
         <div className="w-full md:w-[62%]">
           <img
@@ -357,7 +363,7 @@ const Nav = () => {
                 </div>
 
                 <div className="w-1/2">
-                  <div className="w-full h-full bg-green-500 flex justify-center items-center text-white text-xl">
+                  <div onClick={goToGive} className="w-full h-full bg-green-500 flex justify-center items-center text-white text-xl">
                     Give
                   </div>
                 </div>
