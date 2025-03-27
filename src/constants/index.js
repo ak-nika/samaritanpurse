@@ -29,6 +29,38 @@ export const cardData = [
     text: "Franklin Graham thanks supporters for work completed in 2024 - all to the glory of God.",
     link: "#",
   },
+  {
+    id: 5,
+    image: "https://spweb-uploads.s3.theark.cloud/2023/09/Ministry_Behind_the_Scenes_OTG_Homescreen-400x240.jpg",
+    title: "Our Ministry PODCAST | Ministry Behind the Scenes",
+    text: "This week Kristy Graham takes you behind the scenes and introduces you to some of our Samaritan’s Purse flight attendants, who fly all around the world on our DC-8 combi aircraft.",
+    link: "#",
+  },
+  
+
+
+  {
+    id: 6,
+    image: "https://spweb-uploads.s3.theark.cloud/2025/03/2523SU-A3-1445__HS-400x240.jpg",
+    title: "Healthy Deliveries Bring Joy to Displaced Moms in Sudan",
+    text: "Samaritan's Purse is operating our Emergency Field Hospital in Gedaref to serve women and children in need. Check out story, video, and podcast for International Women's Day, March 8.",
+    link: "#",
+  },
+
+  {
+    id: 7,
+    image: "https://spweb-uploads.s3.theark.cloud/2025/03/Bronson-Story-Homescreen-400x240.jpg",
+    title: "From Hopeless to Hope-Filled",
+    text: "A North Carolina man who lost everything finds new life in Christ after Hurricane Helene.",
+    link: "#",
+  },
+  {
+    id: 8,
+    image: "https://spweb-uploads.s3.theark.cloud/2025/03/HS2-400x240.jpg",
+    title: " Good News and Great Joy Shared in Ethiopia",
+    text: "For the first time in decades, Operation Christmas Child shoebox gifts arrived to children in Ethiopia. Edward Graham, COO for Samaritan's Purse, was there for the joyous event.",
+    link: "#",
+  }
 ];
 
 export const icons = [
