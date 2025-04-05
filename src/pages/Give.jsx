@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Table, Card, Tag, Spin, message, Button, Form, Input, Upload } from 'antd';
+import { Table, Card, Tag, Spin, message, Button, Form, Input, Upload, Typography } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 // import apis from '../assets/apis';
 import { useLocation } from 'react-router-dom';
@@ -7,6 +7,7 @@ import LoadingCenter from '../components/LoadingCenter';
 import apis from '../assets/apis';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+const { Title, Text } = Typography;
 
 
 function Give() {
@@ -17,6 +18,7 @@ function Give() {
     const [paymentMethods, setPaymentMethods] = useState([]);
     const [selectedMethod, setSelectedMethod] = useState(null);
     const [reload, setReload] = useState(false);
+    const [bankDetails, setBankDetails] = useState();
     const [form] = Form.useForm();
 
 
@@ -33,6 +35,16 @@ function Give() {
                 })).json();
                 if (result.status) {
                     setPaymentMethods(result.paymentMethods);
+                }
+                const result2 = await (await fetch(apis.getDirectBankDetails, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })).json();
+                console.log(result2);
+                if (result2.status) {
+                    setBankDetails(result2.data);
                 }
             } catch (e) {
                 message.error("Failed to load payment methods");
@@ -97,6 +109,30 @@ function Give() {
                 <Card className="w-full max-w-3xl p-6 bg-white shadow-lg rounded-lg">
                     <div className="py-4">
                         <h3 className="text-2xl font-bold text-center text-gray-800">Select a Payment Method</h3>
+
+                        <div className="flex flex-wrap justify-center gap-4 mt-4">
+                            {
+                                bankDetails && <>
+                                    <Card title="Bank Details" style={{ width: 400 }}>
+                                        <div>
+                                            <Title level={5}>Bank Name</Title>
+                                            <Text>{bankDetails.bankName}</Text>
+                                        </div>
+
+                                        <div style={{ marginTop: 10 }}>
+                                            <Title level={5}>Account Name</Title>
+                                            <Text>{bankDetails.accountName}</Text>
+                                        </div>
+
+                                        <div style={{ marginTop: 10 }}>
+                                            <Title level={5}>Account Number</Title>
+                                            <Text>{bankDetails.accountNumber}</Text>
+                                        </div>
+                                    </Card>
+
+                                </>
+                            }
+                        </div>
                         <div className="flex flex-wrap justify-center gap-4 mt-4">
                             {paymentMethods.map((method) => (
                                 <Card

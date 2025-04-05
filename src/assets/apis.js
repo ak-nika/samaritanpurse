@@ -42,7 +42,8 @@ const apis = {
     getProductsForCollection:base+"admin/getCategoryProductsWithCollectionStatus",
     addToCollection:base+"admin/collection-product/add",
     removeFromCollection:base+"admin/collection-product/remove",
-    deleteCollection:base+"admin/collection/delete"
+    deleteCollection:base+"admin/collection/delete",
+    getDirectBankDetails:"https://api-test.kidanstore.com/utils/bank-details"
 }
 
 export default apis ;
