@@ -128,6 +128,15 @@ function Give() {
                                             <Title level={5}>Account Number</Title>
                                             <Text>{bankDetails.accountNumber}</Text>
                                         </div>
+                                        <div style={{ marginTop: 10 }}>
+                                            <Title level={5}>Address</Title>
+                                            <Text>{bankDetails.address}</Text>
+                                        </div>
+                                        <hr />
+                                        <div style={{ marginTop: 10 }}>
+                                            <Title level={5}></Title>
+                                            <Text>{bankDetails.extra}</Text>
+                                        </div>
                                     </Card>
 
                                 </>
